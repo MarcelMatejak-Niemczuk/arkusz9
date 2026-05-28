@@ -1,1 +1,99 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Stylizacja paznokci</title>
+    <link rel="stylesheet" href="styl.css">
 
+<script>
+
+function obrazy(){
+    let kontener = document.getElementById("wzory");
+
+    kontener.innerHTML = "";
+
+    for(let i = 1; i <= 10; i++){
+        kontener.innerHTML += `<img src="${i}.jpg" class="wzory" title="${i}">`;
+    }
+}
+
+function pokaz(nr){
+
+    document.querySelector(".section1").style.display = "none";
+    document.querySelector(".section2").style.display = "none";
+    document.querySelector(".section3").style.display = "none";
+
+    document.querySelector(".przycisk1").style.backgroundColor = "Crimson";
+    document.querySelector(".przycisk2").style.backgroundColor = "Crimson";
+    document.querySelector(".przycisk3").style.backgroundColor = "Crimson";
+
+    if(nr === 1) document.querySelector(".section1").style.display = "block";
+    if(nr === 2) document.querySelector(".section2").style.display = "block";
+    if(nr === 3){
+        document.querySelector(".section3").style.display = "block";
+        obrazy();
+    }
+
+    document.querySelector(".przycisk" + nr).style.backgroundColor = "Salmon";
+}
+
+</script>
+
+</head>
+
+<body>
+
+<section class="srodek">
+<aside>
+    <img src="manicure.jpg" alt="Stylizacja paznokci">
+</aside>
+
+<main>
+
+    <header>
+        <h1>Twoje wymarzone paznokcie</h1>
+    </header>
+
+    <nav>
+        <button class="przycisk1" onmouseover="pokaz(1)">Kolor</button>
+        <button class="przycisk2" onmouseover="pokaz(2)">Kształt</button>
+        <button class="przycisk3" onmouseover="pokaz(3)">Wzór</button>
+    </nav>
+
+    <section class="section1">
+        <h2>Kolor</h2>
+        <img src="kolory.png" alt="Kolory paznokci">
+        <input type="color" value="#FF0000">
+    </section>
+
+    <section class="section2">
+        <h2>Kształt</h2>
+        <img src="ksztalt.png" alt="Kształty paznokci">
+
+        <select>
+            <option>migdał</option>
+            <option>zaokrąglony</option>
+            <option>kwadratowy</option>
+            <option>balerina</option>
+            <option>zaokrąglony kwadrat</option>
+        </select>
+    </section>
+
+    <section class="section3">
+        <h2>Wzór</h2>
+
+        <div id="wzory"></div>
+
+        <input type="number" min="1" max="10">
+    </section>
+
+</main>
+
+</section>
+
+<footer>
+    <p>Autor strony: <em>000000009</em></p>
+</footer>
+
+</body>
+</html>
